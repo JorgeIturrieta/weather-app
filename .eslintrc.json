@@ -1,0 +1,26 @@
+{
+  "env": {
+    "cypress/globals": true
+  },
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error",
+    "no-console": "warn",
+    "semi": ["error", "never"],
+    "indent": ["error", 2]
+  },
+  "plugins": ["cypress"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}
