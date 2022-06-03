@@ -3,13 +3,18 @@ export interface WeatherData {
   city: string
   timezone_offset: number
   current: CurrentTime
-  daily: DailyForecast
+  daily: DailyForecast[]
 }
 
 export interface CurrentTime extends Current {
-  humanReadableTime: string
+  humanReadableTime: Time
 }
 
 export interface DailyForecast extends Daily {
-  humanReadableTime: string
+  humanReadableTime: Time
+}
+
+export interface Time {
+  hour: string
+  day: string
 }

@@ -4,9 +4,11 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export const getServerSideProps = async () => {
-  const data = await getCurrentWeather(-31.5658899, -68.5366274)
+  // -31.5658899, -68.5366274  san Juan Argentina
+  // seul Corea 35.1669, 129.0612
+  const data = await getCurrentWeather(35.1669, 129.0612)
   return {
-    props: { data: data },
+    props: { data },
   }
 }
 
