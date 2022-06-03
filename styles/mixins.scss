@@ -1,0 +1,16 @@
+$bp: (
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px,
+);
+
+@mixin query($screen) {
+  @each $key, $value in $bp {
+    @if ($screen == $key) {
+      @media screen and (min-width: $value) {
+        @content;
+      }
+    }
+  }
+}

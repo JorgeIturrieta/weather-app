@@ -1,0 +1,12 @@
+@import '@/styles/mixins.scss';
+
+.header {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  @include query(xl) {
+    & {
+      font-size: 2rem;
+    }
+  }
+}

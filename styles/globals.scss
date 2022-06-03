@@ -1,15 +1,24 @@
 @import 'normalize.scss';
-
+@import 'mixins.scss';
+@import 'variables.scss';
 html,
 body {
-  padding: 20;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  max-width: $xl;
+  margin: 0 auto;
+  height: 100%;
+  border: 1px solid red;
+  background: linear-gradient(to bottom, #94c5f8 1%, #a6e6ff 70%, #b1b5ea 100%);
+}
+body {
+  padding: 0 1rem;
+  @include query(xl) {
+    & {
+      padding: 0 8rem;
+    }
+  }
 }
 
 a {
   color: inherit;
   text-decoration: none;
 }
-
