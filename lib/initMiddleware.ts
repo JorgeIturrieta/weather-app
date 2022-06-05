@@ -1,7 +1,7 @@
 import Cors from 'cors'
 import type { NextApiRequest, NextApiResponse } from 'next'
 export const cors = Cors({
-  methods: ['GET'],
+  methods: 'GET',
 })
 
 export const runMiddleware = (req: NextApiRequest, res: NextApiResponse, fn: Function) => {
