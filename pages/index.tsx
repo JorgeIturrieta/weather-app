@@ -5,8 +5,6 @@ import { getCitiesWeather } from '../lib/network/currentWeather'
 import styles from '../styles/Home.module.css'
 
 export const getServerSideProps = async () => {
-  // -31.5658899, -68.5366274  san Juan Argentina
-  // seul Corea 35.1669, 129.0612
   const data = await getCitiesWeather()
   return {
     props: { data },

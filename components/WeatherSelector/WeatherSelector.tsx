@@ -3,7 +3,6 @@ import React, { FunctionComponent, useState } from 'react'
 import { Weather } from 'types/weatherApi/apiWeahter.interface'
 import { CurrentWeather } from '../CurrentWeather/CurrentWeather'
 import styles from './WeatherSelector.module.scss'
-
 type WeatherSelectorProps = {
   currentWeather: Weather[]
 }
