@@ -1,4 +1,4 @@
-const buildHumanReadableTime = (
+const getHumanReadableTime = (
   time: number,
   timeZoneOffset: number,
   options: Intl.DateTimeFormatOptions | undefined
@@ -7,4 +7,4 @@ const buildHumanReadableTime = (
   return event.toLocaleString('es-Es', options)
 }
 
-export default buildHumanReadableTime
+export default getHumanReadableTime
