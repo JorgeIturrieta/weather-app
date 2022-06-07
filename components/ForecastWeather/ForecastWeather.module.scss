@@ -1,0 +1,15 @@
+@import 'styles/variables.scss';
+.containerGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  .gridItem {
+    border-radius: 4px;
+    border: 1px solid purple;
+    justify-content: center;
+    text-align: center;
+    -webkit-box-shadow: $shadow-card;
+    box-shadow: $shadow-card;
+  }
+}

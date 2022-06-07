@@ -1,19 +1,19 @@
-@import 'normalize.scss';
-@import 'mixins.scss';
-@import 'variables.scss';
+@import './normalize.scss';
+@import './mixins.scss';
+@import './variables.scss';
 html,
 body {
   max-width: $xl;
   margin: 0 auto;
-  height: 100%;
-  border: 1px solid red;
-  background: linear-gradient(to bottom, #94c5f8 1%, #a6e6ff 70%, #b1b5ea 100%);
+  min-height: 100vh;
+
+  // background: linear-gradient(to bottom, #94c5f8 1%, #a6e6ff 70%, #b1b5ea 100%);
 }
 body {
-  padding: 0 1rem;
+  padding: 1rem;
   @include query(xl) {
     & {
-      padding: 0 8rem;
+      padding: 0 5rem 5rem 5rem;
     }
   }
 }

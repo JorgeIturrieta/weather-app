@@ -4,7 +4,7 @@ const getHumanReadableTime = (
   options: Intl.DateTimeFormatOptions | undefined
 ) => {
   const event = new Date(1000 * (time + timeZoneOffset))
-  return event.toLocaleString('es-Es', options)
+  return event.toLocaleString('es-Es', { ...options, timeZone: 'UTC' })
 }
 
 export default getHumanReadableTime

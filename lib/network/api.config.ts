@@ -3,7 +3,7 @@
 
 const apiConf = {
   apiKey: process.env.API_KEY,
-  host: process.env.HOST,
+  host: process.env.NEXT_PUBLIC_HOST,
 }
 
 export default apiConf

@@ -10,6 +10,7 @@ const WeatherSelector: FunctionComponent<WeatherSelectorProps> = ({ currentWeath
   const [index, setIndex] = useState<number>(-1)
   return (
     <div>
+      <h2>Buscar clima por ciudad:</h2>
       <select
         value={index}
         className={styles.selectCity}
