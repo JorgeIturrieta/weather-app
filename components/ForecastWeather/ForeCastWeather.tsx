@@ -34,7 +34,6 @@ const ForeCastWeather: FunctionComponent<ForeCastWeatherProps> = ({ data, timezo
             <p>
               Atardecer:{' '}
               {getHumanReadableTime(day.sunset, timezone, {
-                timeZone: 'UTC',
                 hour: 'numeric',
                 minute: 'numeric',
               })}
