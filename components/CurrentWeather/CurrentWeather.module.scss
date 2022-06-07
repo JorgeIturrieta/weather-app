@@ -1,5 +1,12 @@
 @import 'styles/variables.scss';
+.title {
+  margin: 0.5rem 0;
+}
+.weatherHour {
+  font-weight: bold;
+}
 .container {
+  margin-top: 1rem;
   padding: 1rem;
   display: grid;
   border-radius: 4px;
@@ -9,8 +16,9 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   align-items: center;
+
   .description {
-    gap: 0.5rem;
+    gap: 1rem;
     display: flex;
     align-items: center;
   }
@@ -26,5 +34,11 @@
     color: gray;
     font-weight: 700;
     text-transform: uppercase;
+  }
+
+  .flex {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -9,13 +9,22 @@ export const CurrentWeather: FunctionComponent<CurrentWeatherProps> = ({ data })
   return (
     <div>
       <h2>Pronostico para hoy</h2>
-      <h3>
+      <h3 className={styles.title}>
         {data.day} en {data.city}, {data.country}
       </h3>
+      <span>
+        Hora local:
+        <span className={styles.weatherHour}> {data.hour} hs</span>
+      </span>
       <div className={styles.container}>
         <div>
           <div className={styles.description}>
-            <span className={styles.temperature}>{data.temp}°</span>
+            <div className={styles.flex}>
+              <span className={styles.temperature}>{data.temp}°</span>
+              <span>
+                {data.temp_min}° / {data.temp_max}°{' '}
+              </span>
+            </div>
             <div>
               <Image
                 src={`https://openweathermap.org/img/w/${data.icon}.png`}
@@ -26,9 +35,6 @@ export const CurrentWeather: FunctionComponent<CurrentWeatherProps> = ({ data })
             </div>
             <span className={styles.weatherDescription}>{data.description}</span>
           </div>
-          <span>
-            {data.temp_min}° / {data.temp_max}°{' '}
-          </span>
         </div>
 
         <div className={styles.forecast}>

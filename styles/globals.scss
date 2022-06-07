@@ -8,10 +8,15 @@ body {
   min-height: 100vh;
 }
 body {
-  padding: 1rem;
+  padding: 0 2rem 3rem 2rem;
   @include query(xl) {
     & {
-      padding: 0 5rem 5rem 5rem;
+      padding: 0 3rem 3rem 3rem;
+    }
+  }
+  @include query(xl) {
+    & {
+      padding: 0 6rem 10rem 6rem;
     }
   }
 }
