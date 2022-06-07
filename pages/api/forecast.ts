@@ -14,27 +14,31 @@ export default async function handler(
 ) {
   await runMiddleware(req, res, cors)
 
-  const resp = await weatherApi.get<ForeCastWeather>('/onecall', {
-    params: { ...req.query, exclude: 'current,minutely,hourly', appid: apiConf.apiKey },
-  })
-  const timezoneOffset = resp.data.timezone_offset
-  const respAdapted = resp.data.daily.map<WeatherForecastAdapted>(day => ({
-    day: getHumanReadableTime(day.dt, timezoneOffset, {
-      day: 'numeric',
-      weekday: 'long',
-      month: 'long',
-    }),
-    temp_max: day.temp.max,
-    temp_min: day.temp.min,
-    sunrise: getHumanReadableTime(day.sunrise, timezoneOffset, {
-      hour: 'numeric',
-      minute: 'numeric',
-    }),
-    sunset: getHumanReadableTime(day.sunset, timezoneOffset, {
-      hour: 'numeric',
-      minute: 'numeric',
-    }),
-  }))
+  try {
+    const resp = await weatherApi.get<ForeCastWeather>('/onecall', {
+      params: { ...req.query, exclude: 'current,minutely,hourly', appid: apiConf.apiKey },
+    })
+    const timezoneOffset = resp.data.timezone_offset
+    const respAdapted = resp.data.daily.map<WeatherForecastAdapted>(day => ({
+      day: getHumanReadableTime(day.dt, timezoneOffset, {
+        day: 'numeric',
+        weekday: 'long',
+        month: 'long',
+      }),
+      temp_max: day.temp.max,
+      temp_min: day.temp.min,
+      sunrise: getHumanReadableTime(day.sunrise, timezoneOffset, {
+        hour: 'numeric',
+        minute: 'numeric',
+      }),
+      sunset: getHumanReadableTime(day.sunset, timezoneOffset, {
+        hour: 'numeric',
+        minute: 'numeric',
+      }),
+    }))
 
-  res.status(200).json(respAdapted)
+    res.status(200).json(respAdapted)
+  } catch (err: any) {
+    res.status(err.response?.data.cod || '500').json(err.response?.data)
+  }
 }

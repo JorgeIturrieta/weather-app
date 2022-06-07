@@ -1,22 +1,17 @@
 /* eslint-disable indent */
+import { AxiosError } from 'axios'
 import { useEffect, useState } from 'react'
 import { getForecastWeather } from '../lib/network/getForecastWeather'
 import { WeatherAdapted } from '../types/weather.interface'
 import { WeatherForecastAdapted } from '../types/weatherForecast.interface'
-
+type ServerError = { message: string }
 export const useLocation = () => {
   const [errorLocation, setErrorLocation] = useState<null | string>(null)
   const [errorResponse, setErrorResponse] = useState<null | string>(null)
   const [data, setData] = useState<null | [WeatherAdapted, WeatherForecastAdapted[]]>(null)
   const [loading, setLoading] = useState<boolean>(false)
-  const [disabled, setDisabled] = useState<boolean>(true)
 
   useEffect(() => {
-    navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
-      permissionStatus.onchange = function () {
-        setDisabled(permissionStatus.state === 'denied')
-      }
-    })
     getLocation()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -38,8 +33,13 @@ export const useLocation = () => {
         lon: position.coords.longitude,
       })
       setData(resp)
-    } catch (error: any) {
-      setErrorResponse(error.message)
+    } catch (error) {
+      const serverError = error as AxiosError<ServerError>
+      if (serverError && serverError.response) {
+        setErrorResponse(serverError.response.data.message)
+      } else {
+        setErrorResponse('Hubo un problema al realizar la consulta')
+      }
     } finally {
       setLoading(false)
     }
@@ -67,7 +67,6 @@ export const useLocation = () => {
     errorLocation,
     errorResponse,
     getLocation,
-    disabled,
   }
 }
 

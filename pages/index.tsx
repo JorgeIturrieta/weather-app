@@ -5,9 +5,15 @@ import Head from 'next/head'
 import { getCitiesWeather } from '../lib/network/currentWeather'
 
 export const getServerSideProps = async () => {
-  const data = await getCitiesWeather()
-  return {
-    props: { data },
+  try {
+    const data = await getCitiesWeather()
+    return {
+      props: { data },
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
   }
 }
 
