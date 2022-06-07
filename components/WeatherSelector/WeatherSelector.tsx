@@ -1,10 +1,9 @@
-import getHumanReadableCountry from 'lib/getHumanReadableCountry'
 import React, { FunctionComponent, useState } from 'react'
-import { Weather } from 'types/weatherApi/apiWeahter.interface'
+import { WeatherAdapted } from '../../types/weather.interface'
 import { CurrentWeather } from '../CurrentWeather/CurrentWeather'
 import styles from './WeatherSelector.module.scss'
 type WeatherSelectorProps = {
-  currentWeather: Weather[]
+  currentWeather: WeatherAdapted[]
 }
 const WeatherSelector: FunctionComponent<WeatherSelectorProps> = ({ currentWeather }) => {
   const [index, setIndex] = useState<number>(-1)
@@ -21,7 +20,7 @@ const WeatherSelector: FunctionComponent<WeatherSelectorProps> = ({ currentWeath
         </option>
         {currentWeather.map((weather, idx) => (
           <option key={idx} value={idx}>
-            {weather.name}, {getHumanReadableCountry(weather.sys.country)}
+            {`${weather.city} - ${weather.country} `}
           </option>
         ))}
       </select>

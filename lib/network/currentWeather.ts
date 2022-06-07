@@ -1,9 +1,9 @@
-import { Weather } from '@/types/weatherApi/apiWeahter.interface'
 import { QueryParamsWeatherApi } from '@/types/weatherApi/queryParams.type'
+import { WeatherAdapted } from '../../types/weather.interface'
 import proxyApi from './apiProxy'
 
 export const getCurrentWeather = async (params: QueryParamsWeatherApi) => {
-  const resp = await proxyApi.get<Weather>('/weather', { params })
+  const resp = await proxyApi.get<WeatherAdapted>('/weather', { params })
   return resp.data
 }
 

@@ -1,9 +1,9 @@
-import { Daily } from '@/types/weatherApi/apiWeatherForecast.interface'
 import { QueryParamsWeatherForecastApi } from '@/types/weatherApi/queryParams.type'
+import { WeatherForecastAdapted } from '../../types/weatherForecast.interface'
 import proxyApi from './apiProxy'
 import { getCurrentWeather } from './currentWeather'
 const getForeCast = async (params: QueryParamsWeatherForecastApi) => {
-  const resp = await proxyApi.get<Daily[]>('/forecast', { params })
+  const resp = await proxyApi.get<WeatherForecastAdapted[]>('/forecast', { params })
 
   return resp.data
 }

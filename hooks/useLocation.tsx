@@ -1,13 +1,13 @@
 /* eslint-disable indent */
-import { Weather } from '@/types/weatherApi/apiWeahter.interface'
-import { Daily } from '@/types/weatherApi/apiWeatherForecast.interface'
 import { useEffect, useState } from 'react'
 import { getForecastWeather } from '../lib/network/getForecastWeather'
+import { WeatherAdapted } from '../types/weather.interface'
+import { WeatherForecastAdapted } from '../types/weatherForecast.interface'
 
 export const useLocation = () => {
   const [errorLocation, setErrorLocation] = useState<null | string>(null)
   const [errorResponse, setErrorResponse] = useState<null | string>(null)
-  const [data, setData] = useState<null | [Weather, Daily[]]>(null)
+  const [data, setData] = useState<null | [WeatherAdapted, WeatherForecastAdapted[]]>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [disabled, setDisabled] = useState<boolean>(true)
 

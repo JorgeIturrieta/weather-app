@@ -22,7 +22,7 @@ const WeatherLocation = () => {
       {data ? (
         <>
           <CurrentWeather data={data?.[0]} />
-          <ForeCastWeather data={data?.[1]} timezone={data[0].timezone} />
+          <ForeCastWeather data={data?.[1]} />
         </>
       ) : null}
       {errorResponse ? <p>errorResponse</p> : null}

@@ -1,42 +1,26 @@
-import getHumanReadableTime from 'lib/getHumanReadableTime'
 import React, { FunctionComponent } from 'react'
-import { Daily } from '../../types/weatherApi/apiWeatherForecast.interface'
+import { WeatherForecastAdapted } from '../../types/weatherForecast.interface'
 import style from './ForecastWeather.module.scss'
 type ForeCastWeatherProps = {
-  data: Daily[]
-  timezone: number
+  data: WeatherForecastAdapted[]
 }
 
-const ForeCastWeather: FunctionComponent<ForeCastWeatherProps> = ({ data, timezone }) => {
+const ForeCastWeather: FunctionComponent<ForeCastWeatherProps> = ({ data }) => {
   return (
     <div>
       <h2>Pronóstico extendido</h2>
       <div className={style.containerGrid}>
         {data.map((day, idx) => (
           <div key={idx} className={style.gridItem}>
-            <h3>
-              {getHumanReadableTime(day.dt, timezone, {
-                day: 'numeric',
-                weekday: 'long',
-                month: 'long',
-              })}
-            </h3>
-            <p>Máx: {day.temp.max}°</p>
-            <p>Min: {day.temp.min}°</p>
+            <h3>{day.day}</h3>
+            <p>Máx: {day.temp_max}°</p>
+            <p>Min: {day.temp_min}°</p>
             <p>
-              Amanecer:{' '}
-              {getHumanReadableTime(day.sunrise, timezone, {
-                hour: 'numeric',
-                minute: 'numeric',
-              })}
+              Amanecer: {day.sunrise}
               hs
             </p>
             <p>
-              Atardecer:{' '}
-              {getHumanReadableTime(day.sunset, timezone, {
-                hour: 'numeric',
-                minute: 'numeric',
-              })}
+              Atardecer: {day.sunset}
               hs
             </p>
           </div>
