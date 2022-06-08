@@ -8,7 +8,7 @@ type CurrentWeatherProps = {
 export const CurrentWeather: FunctionComponent<CurrentWeatherProps> = ({ data }) => {
   return (
     <div>
-      <h2>Pronostico para hoy</h2>
+      <h2>Pronóstico para hoy</h2>
       <h3 className={styles.title}>
         {data.day} en {data.city}, {data.country}
       </h3>
