@@ -19,6 +19,11 @@ jobs:
 
       - name: Install dependencies with yarn
         run: yarn install
+      - name: create env file
+        run: |
+          touch .env
+          echo API_KEY=${{ secrets.API_KEY }} >> .env
+          echo NEXT_PUBLIC_HOST=${{ secrets.NEXT_PUBLIC_HOST }} >> .env
       - name: Run lint
         run: yarn lint
       - name: Run unit/integration Tests
