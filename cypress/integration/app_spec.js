@@ -9,9 +9,4 @@ describe('End to end Test App', () => {
       cy.visitWithCustomGeoLoc(win, 'http://localhost:3000', latitudeMock, longitudeMock)
     })
   })
-
-  it('should  render a weather and forecast of the current city', () => {
-    cy.findAllByRole('heading', { name: /pronóstico para hoy/i })
-    cy.findAllByRole('heading', { name: /pronóstico extendido/i })
-  })
 })
