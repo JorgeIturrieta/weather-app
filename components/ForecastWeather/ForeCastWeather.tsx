@@ -9,9 +9,9 @@ const ForeCastWeather: FunctionComponent<ForeCastWeatherProps> = ({ data }) => {
   return (
     <div>
       <h2>Pronóstico extendido</h2>
-      <div className={style.containerGrid}>
+      <div className={style.containerGrid} data-testid='list'>
         {data.map((day, idx) => (
-          <div key={idx} className={style.gridItem}>
+          <div key={idx} className={style.gridItem} data-testid='listitem'>
             <h3>{day.day}</h3>
             <p>Máx: {day.temp_max}°</p>
             <p>Min: {day.temp_min}°</p>

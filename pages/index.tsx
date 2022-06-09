@@ -1,6 +1,6 @@
 import WeatherLocation from '@/components/WeatherLocation/WeatherLocation'
 import WeatherSelector from '@/components/WeatherSelector/WeatherSelector'
-import { InferGetServerSidePropsType } from 'next'
+import InferNextPropsType from 'infer-next-props-type'
 import Head from 'next/head'
 import { getCitiesWeather } from '../lib/network/currentWeather'
 
@@ -17,7 +17,7 @@ export const getServerSideProps = async () => {
   }
 }
 
-export default function Home({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Home({ data }: InferNextPropsType<typeof getServerSideProps>) {
   return (
     <>
       <Head>
