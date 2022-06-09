@@ -13,6 +13,5 @@ describe('End to end Test App', () => {
   it('should  render a weather and forecast of the current city', () => {
     cy.findAllByRole('heading', { name: /pronóstico para hoy/i })
     cy.findAllByRole('heading', { name: /pronóstico extendido/i })
-    cy.findAllByRole('heading', { name: /buscar clima por ciudad/i })
   })
 })

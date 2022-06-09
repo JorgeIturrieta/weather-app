@@ -15,11 +15,11 @@ const WeatherSelector: FunctionComponent<WeatherSelectorProps> = ({ currentWeath
         className={styles.selectCity}
         onChange={e => setIndex(parseInt(e.target.value))}
       >
-        <option value={-1} disabled>
+        <option value={-1} disabled data-testid='select-option'>
           Seleccione una ciudad
         </option>
         {currentWeather.map((weather, idx) => (
-          <option key={idx} value={idx}>
+          <option key={idx} value={idx} data-testid='select-option'>
             {`${weather.city} - ${weather.country} `}
           </option>
         ))}
